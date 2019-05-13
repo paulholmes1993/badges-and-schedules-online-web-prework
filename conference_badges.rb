@@ -1,3 +1,13 @@
+speakers = [
+  "Edsger",
+  "Ada",
+  "Charles",
+  "Alan",
+  "Grace",
+  "Linus",
+  "Matz"
+]
+
 def create_badge(names)
   names.map { |name| name = "Hello, my name is #{name}." }
 end
