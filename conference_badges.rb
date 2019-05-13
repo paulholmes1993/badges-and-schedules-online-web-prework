@@ -1,31 +1,31 @@
-def create_badge(*names)
-  badge_array = []
-  names.each { |name| badge_array << "Hello, my name is #{name}." }
-
-  badge_array
+def badge_maker(name)
+  return "Hello, my name is #{name}."
 end
 
-def get_rooms(list)
-  rooms = [1, 2, 3, 4, 5, 6, 7]
-  room_assignments = []
-  speaker_counter = 0
-  rooms.each do |room|
-    room_assignments << "Hello, #{list[speaker_counter].split(' ')[-1].sub('.', '')}! You'll be assigned to room #{room}!"
-    speaker_counter += 1
+def batch_badge_creator(arr)
+  new_array = []
+  arr.each do |name|
+    new_array.push("Hello, my name is #{name}.")
+  end
+  return new_array
+end
+
+def assign_rooms(arr)
+  new_array = []
+  counter = 1
+  arr.each do |name|
+  new_array.push("Hello, #{name}! You'll be assigned to room #{counter}!")
+  counter+=1
+  end
+  return new_array  
+end
+
+def printer(arr)
+  batch_badge_creator(arr).each do |badge|
+    puts badge
   end
 
-  room_assignments
+  assign_rooms(arr).each do |assignment|
+    puts assignment
+  end
 end
-
-def print_stuff(badge_list, room_assignments)
-  puts badge_list
-  puts room_assignments
-end
-
-def generate
-  badges = create_badge("Edsger", "Ada", "Charles", "Alan", "Grace", "Linus", "Matz")
-  rooms = get_rooms(badges)
-  print_stuff(badges, rooms)
-end
-
-generate
